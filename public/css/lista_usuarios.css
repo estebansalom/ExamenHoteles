@@ -312,3 +312,6 @@ button[name = "btnTabla"]:hover{
 #sct_registrar> input.errorInput, select.errorInput {
     border: 1.5px solid #D1254D;
 }
+input.errorInput, select.errorInput {
+    border: 1.5px solid #D1254D;
+}

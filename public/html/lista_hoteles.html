@@ -88,7 +88,6 @@
             <div class="popup-content">
                 <h1 id="nombreHotel"></h1>
                 <div class="perfil">
-                    <div id="mapa">
                     </div>
                     <div class="perfil-info">
 
@@ -296,8 +295,16 @@
                                 <option value="">--Seleccione un distrito--</option>
                             </select>
                         </div>
+
+                        <div id="divEstado">
+                                <label for="txtEstado">Estado</label>
+                                <select id="txtEstado" required>
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
+                                </select>
+                            </div>
     
-                        <button type="button" id="btnRegistrar">Registrar hotel</button>
+                        <button type="button" id="btnActualizar">Actualizar hotel</button>
                     </div>
                 </form>
             </section>
@@ -305,11 +312,11 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
 <script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/hoteles_public/servicio_hoteles.js"></script>
+<script src="../js/controlador_menu.js"></script>
 <script src="../js/hoteles_public/mapa.js"></script>
 <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIJ2TrApBrLvBsy7Rx-8WNrYfZNO39waQ&callback=initMap"></script>
 <script src="../js/hoteles_public/controlador_direccion_exacta.js"></script>
-<script src="../js/hoteles_public/servicio_hoteles.js"></script>
-<script src="../js/controlador_menu.js"></script>
 <script src="../js/hoteles_public/listar_hoteles.js"></script>
 
 </html>

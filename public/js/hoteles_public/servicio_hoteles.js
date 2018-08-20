@@ -88,6 +88,40 @@ function obtener_hotel_por_id(pid){
       return hotel;
 };
 
+function actualizarHotel(paInfoHotelActual) {
+    let respuesta = '';
+    let peticion = $.ajax({
+        url: 'http://localhost:4000/api/modificar_hotel',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+            _id: paInfoHotelActual[0],
+            nombre_hotel: paInfoHotelActual[1],
+            telefono_hotel: paInfoHotelActual[2],
+            correo_hotel: paInfoHotelActual[3],
+            latitud_hotel: paInfoHotelActual[4],
+            longitud_hotel: paInfoHotelActual[5],
+            direccion_hotel: paInfoHotelActual[6],
+            provincia_hotel: paInfoHotelActual[7],
+            canton_hotel: paInfoHotelActual[8],
+            distrito_hotel: paInfoHotelActual[9],
+            estado_hotel: paInfoHotelActual[10]
+        }
+    });
+
+    peticion.done(function (response) {
+        respuesta = response;
+    });
+
+    peticion.fail(function (response) {
+
+    });
+
+    return respuesta;
+};
+
 function eliminarHotel(_pid){
     let respuesta = '';
     let peticion = $.ajax({

@@ -54,6 +54,18 @@ module.exports.buscar_hotel_por_id = function (req, res) {
     );
 };
 
+module.exports.modificar_hotel = function (req, res) {
+    hotelModel.findByIdAndUpdate(req.body._id, { $set: req.body },
+        function (err) {
+            if (err) {
+                res.json({ success: false, msg: 'El hotel no se ha podido modificar. ' + handleError(err) });
+
+            } else {
+                res.json({ success: true, msg: 'Se ha actualizado correctamente. ' + res });
+            }
+        });
+};
+
 module.exports.eliminar_hotel = function (req, res) {
     hotelModel.findByIdAndDelete(req.body._id,
         function (err, hotel) {

@@ -19,6 +19,11 @@ router.route('/buscar_hotel_id')
         hotelesApi.buscar_hotel_por_id(req, res);
     });
 
+router.route('/modificar_hotel')
+    .post(function (req, res) {
+        hotelesApi.modificar_hotel(req, res);
+    });
+
 router.route('/eliminar_hotel')
     .post(function (req, res) {
         hotelesApi.eliminar_hotel(req, res);

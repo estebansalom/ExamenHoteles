@@ -1,10 +1,50 @@
 'use strict';
 let rolUsuarioActual = localStorage.getItem('rolUsuario');
 mostrarListaHoteles();
+let botonActualizar = document.querySelector('#btnActualizar');
+botonActualizar.addEventListener('click', obtenerDatosActual);
+document.querySelector('#sltProvincia').addEventListener('change', llenarCanton);
+document.querySelector('#sltCanton').addEventListener('change', llenarDistrito);
 let inputBuscar = document.querySelector('#txtBusqueda');
 let inputIdHotel = document.querySelector('#txtId');
 let botonNuevaCalificacion = document.querySelector('#btnCalificar');
 botonNuevaCalificacion.addEventListener('click', calificarHotel)
+
+let inputNombre = document.querySelector('#txtNombre');
+let inputTelefono = document.querySelector('#txtTelefono');
+let inputCorreo = document.querySelector('#txtCorreo');
+let inputLatitud = document.querySelector('#numLatitud');
+let inputLongitud = document.querySelector('#numLongitud');
+let inputDireccion = document.querySelector('#txtDireccion');
+let inputProvincia = document.querySelector('#sltProvincia');
+let inputCanton = document.querySelector('#sltCanton');
+let inputDistrito = document.querySelector('#sltDistrito');
+let inputEstado = document.querySelector('#txtEstado');
+
+let regexSoloLetras = /^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/;
+let regexNombre = /^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ.,&' ]+$/;
+let regexDireccion = /^[0-9a-zA-ZñÑáéíóúÁÉÍÓÚ., ]+$/;
+let regexSoloNumeros = /^[0-9]+$/;
+let regexCoordenadas = /^[0-9.-]+$/;
+
+let id = '';
+let sNombre = '';
+let sTelefono = '';
+let sCorreo = '';
+let nLatitud = 0;
+let nLongitud = 0;
+let sDireccion = '';
+let sProvincia = '';
+let sCanton = '';
+let sDistrito = '';
+let sEstado = '';
+let contRatings = 0;
+let overallRating = 0;
+let ratingComida = 0;
+let ratingServicio = 0;
+let ratingHabitaciones = 0;
+let ratingInfraestructura = 0;
+let ratingLimpieza = 0;
 
 let popup;
 // Buscar
@@ -130,8 +170,8 @@ function mostrarListaHoteles(paBuscar) {
     };
 };
 
-function obtenerDatos() {
-    let infoHotel = [];
+function obtenerDatosActual() {
+    let infoHotelActual = [];
     let bError = false;
 
     sNombre = inputNombre.value;
@@ -143,6 +183,7 @@ function obtenerDatos() {
     sProvincia = inputProvincia.value;
     sCanton = inputCanton.value;
     sDistrito = inputDistrito.value;
+    sEstado = inputEstado.value;
 
     bError = validarHotel();
     if (bError) {
@@ -159,8 +200,8 @@ function obtenerDatos() {
             type: 'success',
             confirmButtonText: 'Entendido'
         });
-        infoHotel.push(sNombre, sTelefono, sCorreo, nLatitud, nLongitud, sDireccion, sProvincia, sCanton, sDistrito, sEstado, contRatings, overallRating, ratingComida, ratingServicio, ratingHabitaciones, ratingInfraestructura, ratingLimpieza);
-        registrarHotel(infoHotel);
+        infoHotelActual.push(id, sNombre, sTelefono, sCorreo, nLatitud, nLongitud, sDireccion, sProvincia, sCanton, sDistrito, sEstado);
+        actualizarHotel(infoHotelActual);
     }
 
 };
@@ -168,6 +209,7 @@ function obtenerDatos() {
 function validarHotel() {
     let bError = false;
 
+    id = inputIdHotel.value;
     sNombre = inputNombre.value;
     sTelefono = inputTelefono.value;
     sCorreo = inputCorreo.value;
@@ -213,28 +255,6 @@ function validarHotel() {
         };
 
         // Validacion para la provincia
-        if (inputProvincia.value == '') {
-            inputProvincia.classList.add('errorInput');
-            bError = true;
-        } else {
-            inputProvincia.classList.remove('errorInput');
-        };
-
-        // Validacion para el canton
-        if (inputCanton.value == '') {
-            inputCanton.classList.add('errorInput');
-            bError = true;
-        } else {
-            inputCanton.classList.remove('errorInput');
-        };
-
-        // Validacion para el distrito
-        if (inputDistrito.value == '') {
-            inputDistrito.classList.add('errorInput');
-            bError = true;
-        } else {
-            inputDistrito.classList.remove('errorInput');
-        };
 
         // Validacion para la longitud
         if (regexCoordenadas.test(nLongitud) == false) {
@@ -365,20 +385,24 @@ function buscar_por_id() {
     let _id = this.dataset._id;
     let hotel = obtener_hotel_por_id(_id);
 
-    console.log(sede);
+    console.log(hotel);
 
     inputIdHotel.value = hotel['_id'];
     inputNombre.value = hotel['nombre_hotel'];
+    inputTelefono.value = hotel['telefono_hotel'];
+    inputCorreo.value = hotel['correo_hotel'];
     inputLatitud.value = hotel['latitud_hotel'];
     inputLongitud.value = hotel['longitud_hotel'];
     inputDireccion.value = hotel['direccion_hotel'];
     inputProvincia.value = hotel['provincia_hotel']
     inputCanton.value = hotel['canton_hotel'];
     inputDistrito = hotel['distrito_hotel'];
-    inputEstadoSede.value = hotel['estado_hotel'];
+    inputEstado.value = hotel['estado_hotel'];
+
+
     let sProvincia = document.querySelector('#sltProvincia');
 for (let i = 1; i < sProvincia.length; i++) {
-    if (sProvincia.options[i].value == usuario['provincia_hotel']) {
+    if (sProvincia.options[i].value == hotel['provincia_hotel']) {
         sProvincia.selectedIndex = i;
     }
 }
@@ -386,14 +410,14 @@ for (let i = 1; i < sProvincia.length; i++) {
 llenarCanton();
 let sCanton = document.querySelector('#sltCanton');
 for (let i = 1; i < sCanton.length; i++) {
-    if (sCanton.options[i].value == usuario['canton_hotel']) {
+    if (sCanton.options[i].value == hotel['canton_hotel']) {
         sCanton.selectedIndex = i;
     }
 }
 llenarDistrito();
 let sDistrito = document.querySelector('#sltDistrito');
 for (let i = 1; i < sDistrito.length; i++) {
-    if (sDistrito.options[i].value == usuario['distrito_hotel']) {
+    if (sDistrito.options[i].value == hotel['distrito_hotel']) {
         sDistrito.selectedIndex = i;
     }
 }
