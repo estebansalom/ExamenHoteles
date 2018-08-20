@@ -144,8 +144,13 @@ function mostrarListaHoteles(paBuscar) {
             botonEditar.dataset._id = listaHoteles[i]['_id'];
             botonEditar.addEventListener('click', buscar_por_id);
             botonEditar.addEventListener('click', function () {
-                popup = document.querySelector('#sct_registrar')
-                popup.style.display = "block";
+                let ppModificar = document.querySelector('#sct_registrar')
+                ppModificar.style.display = "block";
+                window.onclick = function (event) {
+                    if (event.target == ppModificar) {
+                        ppModificar.style.display = "none";
+                    }
+                }
             });
             // Agregar esto a los formularios que tengan mucho contenido (hace una animacion de scroll a la parte superior del formulario)
             $(".scroll").animate({ scrollTop: 0 }, "fast"); 

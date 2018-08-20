@@ -267,24 +267,24 @@ button[name = "btnTabla"]:hover{
     margin-left: 30px;
 }
 
-#sct_registrar> form{
+#sct_registrar form{
     height:600px;
     overflow-y: scroll;
 }
 
-#sct_registrar> h3{
+#sct_registrar h3{
     text-align: center;
     font-size: 2em;
     color: rgb(29, 0, 0.3);
     margin-bottom: 30px;
 }
 
-#sct_registrar> label{
+#sct_registrar label{
     font-size: 20px;
     color: rgb(69, 0, 0);
 }
 
-#sct_registrar> input, select{
+#sct_registrar input, select{
     height: 27px;
     width: 100%;
     margin-top: 3px;
@@ -292,16 +292,8 @@ button[name = "btnTabla"]:hover{
     outline: none;
 }
 
-.div-foto{
-    padding: 30px;
-}
 
-.div-foto> button{
-    padding: 10px; 
-    margin: 47px 60px;
-}
-
-#sct_registrar> input.errorInput, select.errorInput {
+#sct_registrar input.errorInput, select.errorInput {
     border: 1.5px solid #D1254D;
 }
 
