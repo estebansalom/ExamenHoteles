@@ -1,0 +1,159 @@
+html{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+header{
+    height: 100px;
+    background-color:rgb(29, 0, 0);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.35);  
+}
+
+#HotelStar{
+    color: #fff;
+}
+
+#★{
+    color: orange;
+}
+
+header> h1{
+    background-color: rgb(29, 0, 0);
+    text-align: center;
+    padding: 20px 0px;
+}
+
+
+header> h1 a {
+    text-decoration: none;
+    font-size: 2.5em;
+    color: rgb(69, 0, 0);
+    text-shadow: 1px 1px 1px rgba(30, 33, 66, .1);
+}
+
+header> nav {
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    display: flow-root;
+    margin-bottom: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.35)
+}
+
+header> nav a {
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 50px;
+    color: rgb(69, 0, 0);
+    cursor: pointer;
+}
+header nav> a, nav>div{
+    margin-left: 40px;
+}
+header nav>a:first-child{
+    margin-left: 0px;
+}
+header nav>div{
+    display: inline-block;
+    position: relative;
+}
+header a span {
+    margin-left: 10px;
+}
+header nav img{
+    position: absolute;
+    left: 15px;
+    top: 2.5px;
+    height: 45px;
+}
+.menu{
+    display: none;
+    position: absolute;
+    top: 50px;
+    width: 200px;
+    background-color:#e6e3ea;
+}
+
+
+.menu li a{
+    font-size: 12px;
+    line-height: 2em;
+}
+.menu li{
+    text-align: left;
+    padding: 0px 20px;
+    border: 1px solid rgb(69, 0, 0);
+    border-top: none;
+    border-collapse: collapse;
+    background-color: white;
+}
+.menu li:hover{
+    background-color:#e6e3ea;
+}
+
+#txtBusqueda{
+    margin: 15px;
+    width: 200px;
+    height: 25px;
+}
+
+
+#sct_registrar{
+    padding: 100px 280px;
+    background-image: url(../img/luxury_hotels_in_dubai-2560x1600.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+form{
+    background-color: #ffffff;
+    width: 400px;
+    height: 100%;
+    padding: 30px;
+}
+
+h3{
+    text-align: center;
+    font-size: 2em;
+    color: rgb(29, 0, 0);
+    margin-bottom: 30px;
+}
+
+label{
+    font-size: 20px;
+    color: rgb(69, 0, 0);
+}
+
+input, select{
+    height: 27px;
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    outline: none;
+}
+
+#mapa{
+    width: 85%;
+    height: 200px;
+    margin-bottom: 2em;
+    display: block;
+    margin-left: 30px;
+}
+
+input.errorInput, select.errorInput {
+    border: 1.5px solid #D1254D;
+}
+
+.y-align {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.x-align {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}

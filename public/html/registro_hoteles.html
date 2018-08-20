@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HotelStar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/registro_hoteles.css">
+</head>
+
+<body>
+        <header>
+                <h1>
+                    <a id="HotelStar" href="landing_page.html">HotelStar</a>
+                    <a href="#" id="★">★</a>
+                </h1>
+                <nav>
+                    <a href="landing_page.html">Inicio</a>
+                    <div>
+                        <a id="btnOpciones">Opciones
+                            <span class="fas fa-caret-down"></span>
+                        </a>
+                        <ul id="menuOpciones" class="menu">
+        
+                        </ul>
+                    </div>
+                    <a id="btnCerrarSesion">Cerrar sesión</a>
+                </nav>
+            </header>
+    <main>
+        <section id="sct_registrar">
+            <form>
+                <h3 class "form-title">Regístre un hotel</h3>
+                <div>
+
+                    <label for="txtNombre">Nombre del hotel</label>
+                    <input id="txtNombre" type="text" placeholder="Nombre del hotel" required>
+
+                    <label for="txtTelefono">Teléfono</label>
+                    <input type="tel" id="txtTelefono" required placeholder="Teléfono de recepción">
+
+                    <label for="txtCorreo">Correo electrónico</label>
+                    <input id="txtCorreo" type="email" placeholder="Correo electrónico" required>
+
+                    <div id="mapa"></div>
+
+                    <label for="numLatitud">Latitud</label>
+                    <input type="number" id="numLatitud" disabled required >
+
+                    <label for="numLongitud">Longitud</label>
+                    <input type="number" id="numLongitud" disabled required >
+
+                    <label for="txtDireccion">Dirección exacta</label>
+                    <input type="text" id="txtDireccion" required placeholder="Dirección exacta del hotel*">
+
+                    <label for="ubicacion">Ubicación</label>
+                    <div id=ubicacion>
+                        <select name="provincia" id="sltProvincia" required>
+                            <option value="">--Seleccione una provincia--</option>
+                        </select>
+                        <select name="canton" id="sltCanton" required>
+                            <option value="">--Seleccione un cantón-</option>
+                        </select>
+                        <select name="distrito" id="sltDistrito" required>
+                            <option value="">--Seleccione un distrito--</option>
+                        </select>
+                    </div>
+
+                    <button type="button" id="btnRegistrar">Registrar hotel</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+<script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/controlador_menu.js"></script>
+<script src="../js/hoteles_public/servicio_hoteles.js"></script>
+<script src="../js/hoteles_public/mapa.js"></script>
+<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIJ2TrApBrLvBsy7Rx-8WNrYfZNO39waQ&callback=initMap"></script>
+<script src="../js/hoteles_public/controlador_direccion_exacta.js"></script>
+<script src="../js/hoteles_public/controlador_hoteles.js"></script>
+    </html>

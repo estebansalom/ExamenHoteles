@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>HotelStar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/lista_usuarios.css" />
+</head>
+
+<body>
+    <header>
+        <h1>
+            <a id="HotelStar" href="landing_page.html">HotelStar</a>
+            <a href="#" id="★">★</a>
+            <input type="text" id="txtBusqueda">
+        </h1>
+        <nav>
+            <a href="landing_page.html">Inicio</a>
+            <div>
+                <a id="btnOpciones">Opciones
+                    <span class="fas fa-caret-down"></span>
+                </a>
+                <ul id="menuOpciones" class="menu">
+
+                </ul>
+            </div>
+            <a id="btnCerrarSesion">Cerrar sesión</a>
+        </nav>
+    </header>
+    <main>
+        <section id="sct_tabla">
+            <table id="tblUsuarios" class="scroll">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Nombre</th>
+                        <th>Cedula</th>
+                        <th></th>
+                        <th>Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="sct_verMas" class="popup-bg">
+            <div id="perfil" class="popup-content">
+                <h1 id="nombrePerfil"></h1>
+                <div class="perfil">
+                    <div id="img">
+                    </div>
+                    <div class="perfil-info">
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="sct_registrar" class="popup-bg">
+                <form class="scroll popup-content">
+                    <h3 id="h1" class "form-title">Regístrese aquí</h3>
+                    <input type="hidden" id="txtId">
+                    <div>
+                        <div class="div-foto">
+                            <img src="../img/default-avatar.png" alt="Foto" id="txtImagenActual" class="">
+                            <button type="button" id="btnModificarFoto" class="">Subir foto</button>
+                        </div>
+    
+                        <label for="txtNombre">Nombre</label>
+                        <input id="txtNombre" type="text" placeholder="Ingrese su nombre" required>
+    
+                        <label for="txtSegundoNombre">Segundo nombre</label>
+                        <input id="txtSegundoNombre" type="text" placeholder="Ingrese su segundo nombre (opcional)">
+    
+                        <label for="txtPrimerApellido">Primer apellido</label>
+                        <input id="txtPrimerApellido" type="text" placeholder="Ingrese su primer apellido" required>
+    
+                        <label for="txtSegundoApellido">Segundo apellido</label>
+                        <input id="txtSegundoApellido" type="text" placeholder="Ingrese su segundo apellido (opcional)">
+    
+                        <label for="txtCorreo">Correo electrónico</label>
+                        <input id="txtCorreo" type="text" placeholder="Ingrese su correo electrónico" required>
+    
+                        <label for="txtCedula">Cédula</label>
+                        <input id="txtCedula" type="text" placeholder="Ingrese su número de cédula" required>
+    
+                        <label for="dateNacimiento">Fecha de nacimiento</label>
+                        <input id="dateNacimiento" type="date" required autocomplete>
+    
+                        <label for="sltSexo">Sexo</label>
+                        <select id="sltSexo" required aria-placeholder="Seleccione su sexo">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                        </select>
+
+                        <div id="divEstado">
+                                <label for="txtEstado">Estado</label>
+                                <select id="txtEstado" required>
+                                    <option value="Activo">Activo</option>
+                                    <option value="Inactivo">Inactivo</option>
+                                </select>
+                            </div>
+    
+                        <button type="button" id="btnActualizar">Actualizar usuario</button>
+                    </div>
+                </form>
+            </section>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2"></script>
+<script src="../js/jquery-3.3.1.js"></script>
+<script src='https://cdn.jsdelivr.net/jquery.cloudinary/1.0.18/jquery.cloudinary.js' type='text/javascript'></script>
+<script src="https://widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+<script src="../js/usuarios_public/servicio_usuarios.js"></script>
+<script src="../js/controlador_menu.js"></script>
+<script src="../js/usuarios_public/controlador_actualizar_imagen.js"></script>
+<script src="../js/usuarios_public/listar_usuarios.js"></script>
+
+</html>
+
+</html>
