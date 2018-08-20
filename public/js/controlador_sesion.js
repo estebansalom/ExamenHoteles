@@ -4,34 +4,34 @@ let windowLocation = window.location.href;
 let listaUsuarios = obtenerListaUsuarios();
 
 // Inicio iniciar sesion
-let inputCorreo = document.querySelector('#txtCorreo');
-let inputContrasenna = document.querySelector('#txtContrasenna');
+let inputCorreoSesion = document.querySelector('#txtCorreoSesion');
+let inputContrasennaSesion = document.querySelector('#txtContrasennaSesion');
 let botonIngresar = document.querySelector('#btnIngresar');
 botonIngresar.addEventListener('click', obtenerDatosInicio);
 
-let sCorreo = "";
-let sContrasenna = "";
+let sCorreoSesion = "";
+let sContrasennaSesion = "";
 
 function obtenerDatosInicio() {
     localStorage.clear();
-    sCorreo = inputCorreo.value;
-    sContrasenna = inputContrasenna.value;
+    sCorreoSesion = inputCorreoSesion.value;
+    sContrasennaSesion = inputContrasennaSesion.value;
 
     // validar pequenno
-    if (sCorreo == "") {
-        inputCorreo.classList.add('errorInput');
+    if (sCorreoSesion == "") {
+        inputCorreoSesion.classList.add('errorInput');
     } else {
-        inputCorreo.classList.remove('errorInput');
+        inputCorreoSesion.classList.remove('errorInput');
     }
-    if (sContrasenna == "") {
-        inputContrasenna.classList.add('errorInput');
+    if (sContrasennaSesion == "") {
+        inputContrasennaSesion.classList.add('errorInput');
     } else {
-        inputContrasenna.classList.remove('errorInput');
+        inputContrasennaSesion.classList.remove('errorInput');
     }
     // validar pequenno
 
     let bError = false;
-    bError = verificarCredenciales(sCorreo, sContrasenna);
+    bError = verificarCredenciales(sCorreoSesion, sContrasennaSesion);
     if (bError) {
         swal({
             title: 'No se pudo iniciar sesión',
@@ -45,12 +45,12 @@ function obtenerDatosInicio() {
 }
 // ssotom@ucenfotec.ac.cr
 // 121000
-function verificarCredenciales(sCorreo, sContrasenna) {
+function verificarCredenciales(sCorreoSesion, sContrasennaSesion) {
 
     let bError = true;
     for (let i = 0; i < listaUsuarios.length; i++) {
-        if (sCorreo === listaUsuarios[i]['correo_usuario']) {
-            if (sContrasenna == listaUsuarios[i]['contrasenna_usuario']) {
+        if (sCorreoSesion === listaUsuarios[i]['correo_usuario']) {
+            if (sContrasennaSesion == listaUsuarios[i]['contrasenna_usuario']) {
 
                 let nombreCompleto = listaUsuarios[i]['nombre_usuario']+' '+listaUsuarios[i]['primer_apellido_usuario']+' '+listaUsuarios[i]['segundo_apellido_usuario']
                 localStorage.setItem('idUsuario', listaUsuarios[i]['_id']);
@@ -58,7 +58,7 @@ function verificarCredenciales(sCorreo, sContrasenna) {
                 localStorage.setItem('nombreCompletoUsuario', nombreCompleto);
                 localStorage.setItem('correo_usuario', listaUsuarios[i]['correo_usuario']);
 
-                inputContrasenna.classList.remove('errorInput');
+                inputContrasennaSesion.classList.remove('errorInput');
                 bError = false;
                 break;
             }
@@ -79,25 +79,10 @@ function accionRol(psRol) {
     }
 }
 
-// Contrasenna visible o no
-let botonVer = document.querySelector('#btnVerContrasenna');
-botonVer.addEventListener('click', function () {
-    let isOpen = botonVer.classList.contains('fa-eye');
-    if (isOpen) {
-        botonVer.classList.remove('fa-eye');
-        botonVer.classList.add('fa-eye-slash');
-        inputContrasenna.type = 'password';
-    } else {
-        botonVer.classList.remove('fa-eye-slash');
-        botonVer.classList.add('fa-eye');
-        inputContrasenna.type = 'text';
-    }
-});
-
 // Fin iniciar sesion
 
 // Inicio formulario
-let popup = document.querySelector('.popup-bg');
+let popup = document.querySelector('#sct_iniciar_sesion');
 let botonIniciar = document.querySelector('#btnIniciar');
 botonIniciar.addEventListener('click', function () {
     popup.style.display = "block";
@@ -107,10 +92,10 @@ botonIniciar.addEventListener('click', function () {
 window.onclick = function (event) {
     if (event.target == popup) {
         popup.style.display = "none";
-        inputContrasenna.value = "";
-        inputCorreo.value = "";
-        inputCorreo.classList.remove('errorInput');
-        inputContrasenna.classList.remove('errorInput');
+        inputContrasennaSesion.value = "";
+        inputCorreoSesion.value = "";
+        inputCorreoSesion.classList.remove('errorInput');
+        inputContrasennas.classList.remove('errorInput');
     }
 }
 // Esto es para que despliegue el formulario

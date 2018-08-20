@@ -39,7 +39,7 @@ function cerrarSesion() {
     }).then((result) => {
         if (result.value) {
             window.localStorage.clear();
-            window.location.href = "../html/landing_page.html";
+            window.location.href = "../html/registro_usuarios.html";
         }
     })
 

@@ -3,6 +3,23 @@ html{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
+button{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-align: center;
+    font-size: 11px;
+    padding:  5px 5px;
+    color: white;
+    background-color: rgb(69, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 10px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: orange;
+    box-shadow: rgba(255, 255, 255, 0.65) 0px 0px 5px;
+}
+
 main{
     display: grid;
     grid-auto-columns: 70px 3fr 70px;
